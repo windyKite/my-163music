@@ -67,8 +67,33 @@ aside > ol > li > .songName{
 }
 
 /* main */
-main > .dragUpload{
-  width: 100%;
+main > .upload{
+  display: flex;
+  justify-content: space-between;
+}
+main > .upload > .avatar{
+  border: 2px dashed #fff;
+  width: 220px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 220px;
+}
+main > .upload > .avatar > div{
+  color: rgba(255,255,255,.7);
+  padding: 20px;
+  cursor: pointer;
+}
+main > .upload > .avatar.active > div{
+  display: none;
+}
+main > .upload > .avatar.active{
+  background-size: cover; 
+}
+
+main > .upload > .dragUpload{
+  width: 60%;
   height: 220px;
   background: rgba(0,0,0,0.3);
   border: 2px dashed #fff;
@@ -77,12 +102,12 @@ main > .dragUpload{
   justify-content: center;
   align-items: center;
 }
-main > .dragUpload > .message{
+main > .upload > .dragUpload > .message{
   color: rgba(255,255,255,.7);
   font-size: 20px;
   letter-spacing: 8px;
 }
-main > .dragUpload > .message > span{
+main > .upload > .dragUpload > .message > span{
   color: #fff;
   cursor: pointer;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
   <link rel="stylesheet" href="./css/admin.css">
   <title>云音乐管理页面</title>
 </head>
+
 <body>
   <div class="page">
-    <aside> 
+    <aside>
       <h1>歌曲列表</h1>
       <ol>
         <li>
@@ -30,7 +32,7 @@
         </li>
         <li>
           <span class="number">5</span>
-          <span class="songName">你就不要想起我</span>
+          <span class="songuplName">你就不要想起我</span>
         </li>
         <li>
           <span class="number">6</span>
@@ -59,8 +61,14 @@
       </ol>
     </aside>
     <main>
-      <div class="dragUpload">
-        <div class="message">拖曳文件或<span>点击此处</span>上传</div>
+      <div class="upload">
+        <div id="dragUpload" class="dragUpload">
+          <div id="musicUpload" class="message">拖曳文件或
+            <span>点击此处</span>上传</div>
+        </div>
+        <div id="pictureDragUpload" class="avatar">
+          <div id="pictureUploadButton">上传头像，比例1:1</div>
+        </div>
       </div>
       <div class="form">
         <form>
@@ -80,7 +88,7 @@
           </div>
           <div class="row">
             <label>外链</label>
-            <input type="text" placeholder="音乐外链" name="url">            
+            <input type="text" placeholder="音乐外链" name="url">
           </div>
           <div class="row">
             <label>歌词</label>
@@ -98,8 +106,8 @@
   <script src="./vendors/av-min.js"></script>
   <script src="./vendors/qiniu.min.js"></script>
   <script src="./vendors/moxie.js"></script>
-  <script>
-    
-  </script>
+  
+  <script src="./js/admin/upload.js"></script>
 </body>
+
 </html>
