@@ -13,91 +13,20 @@
   <div class="page">
     <aside>
       <h1>歌曲列表</h1>
-      <ol>
-        <li>
-          <span class="number">1</span>
-          <span class="songName">刚好遇见你</span>
-        </li>
-        <li>
-          <span class="number">2</span>
-          <span class="songName">浪费</span>
-        </li>
-        <li>
-          <span class="number">3</span>
-          <span class="songName">小幸运</span>
-        </li>
-        <li>
-          <span class="number">4</span>
-          <span class="songName">热带雨林</span>
-        </li>
-        <li>
-          <span class="number">5</span>
-          <span class="songuplName">你就不要想起我</span>
-        </li>
-        <li>
-          <span class="number">6</span>
-          <span class="songName">说谎</span>
-        </li>
-        <li>
-          <span class="number">7</span>
-          <span class="songName">想念自己</span>
-        </li>
-        <li>
-          <span class="number">8</span>
-          <span class="songName">忽然之间</span>
-        </li>
-        <li>
-          <span class="number">9</span>
-          <span class="songName">一眼万年</span>
-        </li>
-        <li class="active">
-          <span class="number">10</span>
-          <span class="songName">一直很安静</span>
-        </li>
-        <li>
-          <span class="number">11</span>
-          <span class="songName">逍遥叹</span>
-        </li>
-      </ol>
+      <div class="songList">
+
+      </div>
     </aside>
     <main>
       <div class="upload">
         <div id="dragUpload" class="dragUpload">
-          <div id="musicUpload" class="message">拖曳文件或
-            <span>点击此处</span>上传</div>
+          
         </div>
         <div id="pictureDragUpload" class="avatar">
-          <div id="pictureUploadButton">上传头像，比例1:1</div>
         </div>
       </div>
       <div class="form">
-        <form>
-          <div class="row">
-            <div class="songName">
-              <label>歌名</label>
-              <input type="text" placeholder="音乐标题" name="songName">
-            </div>
-            <div class="singer">
-              <label>歌手</label>
-              <input type="text" placeholder="音乐演唱者" name="singer">
-            </div>
-          </div>
-          <div class="row">
-            <label>封面</label>
-            <input type="text" placeholder="音乐封面外链" name="cover">
-          </div>
-          <div class="row">
-            <label>外链</label>
-            <input type="text" placeholder="音乐外链" name="url">
-          </div>
-          <div class="row">
-            <label>歌词</label>
-            <textarea name="lyrics" id="" placeholder="音乐歌词" cols="67" rows="15"></textarea>
-          </div>
-          <div class="row">
-            <input type="submit" value="保存音乐">
-          </div>
-        </form>
+        
       </div>
 
     </main>
@@ -107,7 +36,10 @@
   <script src="./vendors/qiniu.min.js"></script>
   <script src="./vendors/moxie.js"></script>
   
-  <script src="./js/admin/upload.js"></script>
+  <script src="./js/admin/song-list.js"></script>
+  <script src="./js/admin/musicUpload.js"></script>
+  <script src="./js/admin/pictureUpload.js"></script>
+  <script src="./js/admin/form.js"></script>
 </body>
 
 </html>

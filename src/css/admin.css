@@ -37,14 +37,14 @@ aside > h1{
   overflow: hidden;
   margin-bottom: 10px;
 }
-aside > ol{
+aside > .songList > ol{
   overflow: auto;
   height: calc(100% - 36px);
 }
 ::-webkit-scrollbar { 
   display: none; 
 }
-aside > ol > li{
+aside > .songList > ol > li{
   text-align: left;
   padding: 5px 0;
   max-width: 100%;
@@ -53,16 +53,16 @@ aside > ol > li{
   background: rgba(0,0,0,0.3);
   border-radius: 6px;
 }
-aside > ol > li.active{
+aside > .songList > ol > li.active{
   background: rgba(255,255,255,.2);
   
 }
-aside > ol > li > .number{
+aside > .songList > ol > li > .number{
   text-align: center;
   display: inline-block;
   width:56px;
 }
-aside > ol > li > .songName{
+aside > .songList > ol > li > .songName{
   display: inline-block;
 }
 
