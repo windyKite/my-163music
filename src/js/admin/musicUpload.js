@@ -57,6 +57,9 @@
             var domain = up.getOption('domain');
             var response = JSON.parse(info.response);
             var sourceLink = 'http://' + domain + '/' + decodeURIComponent(response.key);
+            console.log('++++++++++++++++++')
+            console.log(sourceLink)
+            console.log(response)
           },
         }
       }
