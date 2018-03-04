@@ -10,7 +10,7 @@
       let songs = data.songs
       let liList = songs.map((song,index)=>{
         let {id,name} = song
-        return $(`<li data-song-id=${id}><span class="number">${index+1}</span><span class="songName">${name}</span></li>`)
+        return $(`<li data-song-id="${id}" title="${name}"><span class="number">${index+1}</span><span class="songName">${name}</span></li>`)
       })
       this.$el.find('ol').empty()
       liList.map((li)=>{

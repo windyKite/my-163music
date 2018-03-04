@@ -92,7 +92,7 @@
     },
     bindEventHub(){
       window.eventHub.on('musicUpload',(musicData)=>{
-        this.model.data.song = {} //xxxxxxxx
+        this.model.data.song = {} 
         let {song} = this.model.data
         let {name, url} = musicData
         song.name = name
@@ -103,13 +103,16 @@
         this.model.data.song = song
         this.view.render(this.model.data.song)
       })
+      window.eventHub.on('pictureUpload',(sourceLink)=>{
+        this.model.data.song.cover = sourceLink
+        this.view.render(this.model.data.song)        
+      })
     },
     bindEvents(){
       this.view.$el.on('submit','form',(e)=>{
         e.preventDefault()
         if(this.model.data.song.id){
           this.update()
-          alert('保存成功！')
         }else{
           this.create()
         }
@@ -164,6 +167,7 @@
       Object.assign(this.model.data.song, data)
       let object = JSON.parse(JSON.stringify(this.model.data.song))
       window.eventHub.emit('update',object)
+      alert('更新成功！')      
     }
   }
 

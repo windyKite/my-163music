@@ -8,11 +8,14 @@
       <div id="pictureUploadButton">上传头像，比例1:1</div>
     `,
     render(data){
-      this.$el.html(this.template)
+      let html = this.template
+      this.$el.html(html)
     }
   }
 
-  let model = {}
+  let model = {
+    cover: '',
+  }
 
   let controller = {
     init(view,model){
@@ -21,6 +24,7 @@
       this.model = model
       this.view.render()
       this.initPictureUpload()
+      this.bindEventHub()
     },
     initPictureUpload(){
       let pictureOptions = {
@@ -52,16 +56,37 @@
         auto_start: true,                   // 选择文件后自动上传，若关闭需要自己绑定事件触发上传,
         init: {
           // 文件上传成功之后执行的函数
-          'FileUploaded': function (up, file, info) {
+          'FileUploaded':  (up, file, info)=>{
             var domain = up.getOption('domain');
             var response = JSON.parse(info.response);
             var sourceLink = 'http://' + domain + '/' + decodeURIComponent(response.key);
-            $('#pictureDragUpload').css('background-image',`url(${sourceLink})`)
+            this.model.cover = sourceLink
+            $('#pictureDragUpload').css('background-image',`url(${this.model.cover})`)
+              .addClass('active')
+            window.eventHub.emit('pictureUpload', sourceLink)
           },
         }
       }
       let pictureUpload = Qiniu.uploader(pictureOptions)
     },
+    bindEventHub(){
+      window.eventHub.on('selected',(song)=>{
+        if(song.cover){
+          this.model.cover = song.cover
+          this.view.$el.css('background-image',`url(${this.model.cover})`)
+            .addClass('active')
+        }else{
+          this.model.cover = ''
+          this.view.$el.css('background-image',`url(${this.model.cover})`)          
+            .removeClass('active')
+        }
+      })
+      window.eventHub.on('musicUpload',(musicData)=>{
+          this.model.cover = ''
+          this.view.$el.css('background-image',`url(${this.model.cover})`)          
+        .removeClass('active')
+      })
+    }
   }
 
   controller.init(view, model)
