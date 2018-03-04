@@ -4,68 +4,98 @@
     init(){
       this.$el = $(this.el)
     },
-    template:`
-    <ol>
-      <li>
-        <span class="number">1</span>
-        <span class="songName">刚好遇见你</span>
-      </li>
-      <li>
-        <span class="number">2</span>
-        <span class="songName">浪费</span>
-      </li>
-      <li>
-        <span class="number">3</span>
-        <span class="songName">小幸运</span>
-      </li>
-      <li>
-        <span class="number">4</span>
-        <span class="songName">热带雨林</span>
-      </li>
-      <li>
-        <span class="number">5</span>
-        <span class="songuplName">你就不要想起我</span>
-      </li>
-      <li>
-        <span class="number">6</span>
-        <span class="songName">说谎</span>
-      </li>
-      <li>
-        <span class="number">7</span>
-        <span class="songName">想念自己</span>
-      </li>
-      <li>
-        <span class="number">8</span>
-        <span class="songName">忽然之间</span>
-      </li>
-      <li>
-        <span class="number">9</span>
-        <span class="songName">一眼万年</span>
-      </li>
-      <li class="active">
-        <span class="number">10</span>
-        <span class="songName">一直很安静</span>
-      </li>
-      <li>
-        <span class="number">11</span>
-        <span class="songName">逍遥叹</span>
-      </li>
-    </ol>
-    `,
+    template:`<ol></ol>`,
     render(data){
-      this.$el.html(this.template)
-    }
+      $(this.$el).html(this.template)
+      let songs = data.songs
+      let liList = songs.map((song,index)=>{
+        let {id,name} = song
+        return $(`<li data-song-id=${id}><span class="number">${index+1}</span><span class="songName">${name}</span></li>`)
+      })
+      this.$el.find('ol').empty()
+      liList.map((li)=>{
+        this.$el.find('ol').append(li)
+      })
+    },
+    active(element){
+      $(element).addClass('active')
+        .siblings('.active').removeClass('active')
+    },
   }
 
-  let model = {}
+  let model = {
+    data:{
+      songs:[
+
+      ]
+    },
+    find(){
+      let query = new AV.Query('Song')
+      return query.find().then((songs)=>{
+        this.data.songs = songs.map((song)=>{
+          return {
+            id: song.id,
+            name: song.attributes.name,
+            url: song.attributes.url,
+            singer: song.attributes.singer,
+            cover: song.attributes.cover,
+            lyrics: song.attributes.lyrics,
+          }
+        })
+      })
+    },
+  }
 
   let controller = {
     init(view, model){
       this.view = view
       this.view.init()
       this.model = model
-      this.view.render()
+      this.getAllSongs()
+      this.bindEventHub()
+      this.bindEvents()
     },
+    getAllSongs(){
+      this.model.find().then(()=>{
+        this.view.render(this.model.data)
+      })
+    },
+    bindEventHub(){
+      window.eventHub.on('create',(song)=>{
+        this.model.data.songs.push(song)
+        this.view.render(this.model.data)
+
+        let liNumber = this.model.data.songs.length - 1
+        let li = this.view.$el.find('ol > li')[liNumber]
+        this.view.active(li)
+      })
+      window.eventHub.on('update',(song)=>{
+        let liNumber
+        let songs = this.model.data.songs
+        for(let i = 0; i < songs.length; i++){
+          if(songs[i].id === song.id){
+            liNumber = i
+            Object.assign(songs[i], song)
+          }
+        }
+        this.view.render(this.model.data)
+        let li = this.view.$el.find('ol > li')[liNumber]
+        this.view.active(li)
+      })
+      
+    },
+    bindEvents(){
+      this.view.$el.on('click','li',(e)=>{
+        let songId = $(e.currentTarget).attr('data-song-id')
+        this.view.active(e.currentTarget)
+        let selectedSong = this.model.data.songs.filter((song)=>{
+          return song.id === songId
+        })[0]
+        
+        let object = JSON.parse(JSON.stringify(selectedSong))
+        window.eventHub.emit('selected',object)
+      })
+    }
   }
 
   controller.init(view, model)

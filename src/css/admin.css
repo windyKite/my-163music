@@ -64,6 +64,7 @@ aside > .songList > ol > li > .number{
 }
 aside > .songList > ol > li > .songName{
   display: inline-block;
+  width: 194px;
 }
 
 /* main */

@@ -56,10 +56,13 @@
           'FileUploaded': function (up, file, info) {
             var domain = up.getOption('domain');
             var response = JSON.parse(info.response);
-            var sourceLink = 'http://' + domain + '/' + decodeURIComponent(response.key);
-            console.log('++++++++++++++++++')
-            console.log(sourceLink)
-            console.log(response)
+            var sourceLink = 'http:' + domain + '/' + decodeURIComponent(response.key);
+
+            let musicData = {
+              url: sourceLink,
+              name: response.key
+            }
+            window.eventHub.emit('musicUpload', musicData)
           },
         }
       }
