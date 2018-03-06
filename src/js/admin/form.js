@@ -168,7 +168,7 @@
       let object = JSON.parse(JSON.stringify(this.model.data.song))
       window.eventHub.emit('update',object)
       alert('更新成功！')      
-    }
+    },
   }
 
   controller.init(view, model)

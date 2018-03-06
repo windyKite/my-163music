@@ -5,7 +5,7 @@
       this.$el = $(this.el)
     },
     template:`
-      <div id="pictureUploadButton">上传头像，比例1:1</div>
+      <div id="pictureUploadButton">上传封面，比例1:1</div>
     `,
     render(data){
       let html = this.template
@@ -59,7 +59,7 @@
           'FileUploaded':  (up, file, info)=>{
             var domain = up.getOption('domain');
             var response = JSON.parse(info.response);
-            var sourceLink = 'http://' + domain + '/' + decodeURIComponent(response.key);
+            var sourceLink = 'http:' + domain + '/' + decodeURIComponent(response.key);
             this.model.cover = sourceLink
             $('#pictureDragUpload').css('background-image',`url(${this.model.cover})`)
               .addClass('active')
