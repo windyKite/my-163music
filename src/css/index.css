@@ -76,7 +76,7 @@ nav > ol > li.active > span::after{
 }
 /* latestMusic */
 .latestMusic > ol.loading{
-  background: url(../../../images/index/loading.gif) no-repeat;
+  background: url(http://p4ybacwlp.bkt.clouddn.com/loading.gif) no-repeat;
   min-height: 7.04vh;
   background-size: contain;
 }
@@ -108,7 +108,7 @@ nav > ol > li.active > span::after{
   width: 8.125vw;
   height: 4.58vh;
   right: -94.125vw;
-  top: -5.93vh;
+  top: -5.30vh;
 }
 /* footer */
 .footer{
