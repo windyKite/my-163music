@@ -75,7 +75,11 @@ nav > ol > li.active > span::after{
   overflow: hidden;
 }
 /* latestMusic */
-.latestMusic > ol{}
+.latestMusic > ol.loading{
+  background: url(../../../images/index/下载.gif) no-repeat;
+  min-height: 7.04vh;
+  background-size: contain;
+}
 .latestMusic > ol > li{
   padding:1.01vh 0;
   border-bottom: 1px solid rgba(0,0,0,.1);

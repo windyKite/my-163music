@@ -5,6 +5,7 @@
       this.$el = $(this.el)
     },
     render(data){
+      this.$el.find('ol').removeClass('loading')
       let {songs} = data
       songs.map((song)=>{
         let {id,name,singer} = song
