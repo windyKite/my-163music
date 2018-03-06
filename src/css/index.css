@@ -76,7 +76,7 @@ nav > ol > li.active > span::after{
 }
 /* latestMusic */
 .latestMusic > ol.loading{
-  background: url(../../../images/index/下载.gif) no-repeat;
+  background: url(../../../images/index/loading.gif) no-repeat;
   min-height: 7.04vh;
   background-size: contain;
 }
