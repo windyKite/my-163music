@@ -1,0 +1,39 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  background-image:url(../../../images/download/background); 
+  color: #fff;
+  background-size: contain;
+  text-align: center;
+  padding-top: 2.82vh;
+}
+p{
+  font-size: 4.0625vw;
+  letter-spacing: 2px;
+}
+p.open{
+  margin-top:2.82vh ;
+  font-size: 3.75vw;
+}
+.logo{
+  width: 33.75vw;
+  height: 19.02vh;
+  background-image:url(../../../images/download/logo); 
+  background-size: 100% auto;
+  margin: 0 auto;
+  margin-top: 10.56vh;
+}
+.download{
+  display: inline-block;
+  margin: 0 auto; 
+  margin-top: 7.04vh;
+  display: block;
+  width: 58.75vw;
+  height: 8.10vh;
+  line-height: 8.10vh;
+  background: #311412;
+  border: 1px solid #7c6a69;
+  border-radius: 8.70%/2.22%;
+  color: #fff;
+  font-size: 7.5vw;
+}
