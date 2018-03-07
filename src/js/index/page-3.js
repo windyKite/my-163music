@@ -10,6 +10,20 @@
     hide(){
       this.$el.removeClass('active')
     },
+    render(){
+      let template = `
+      <form>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-search"></use>
+        </svg>
+        <input id="search" type="text" placeholder="搜索歌曲、歌手">
+        <svg class="icon clear" aria-hidden="true">
+            <use xlink:href="#icon-clear"></use>
+        </svg>
+      </form>
+      `
+      this.$el.html(template)
+    },
     renderA(inputValue, hasTagA){
       if(!hasTagA){ // a 标签不存在时，创建 a 标签
         let a = document.createElement('a')
@@ -90,6 +104,7 @@
     init(view, model){
       this.view = view
       this.view.init()
+      this.view.render()
       this.model = model
       this.bindEventHub()
       this.bindEvents()
@@ -120,6 +135,9 @@
       this.view.$el.find('svg.clear').eq(0).on('click',(e)=>{
         this.view.removeAll()
         this.model.hasTagA = false
+        if(this.view.$el.find('ol')){
+          this.view.$el.find('ol').eq(0).remove()
+        }
       })
       this.view.$el.on('click','#searchButton',(e)=>{
         this.model.search(this.model.inputValue).then(()=>{
