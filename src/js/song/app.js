@@ -68,6 +68,7 @@
         url: '',
         cover: '',
         lyrics:'',
+        clickAmount:undefined,
       },
       status: 'paused',
     },  
@@ -79,7 +80,13 @@
       return query.get(id).then((song)=>{
         Object.assign(this.data.song, song.attributes)
       })
-    }
+    },
+    addClickAmount(id){
+      this.data.song.clickAmount = this.data.song.clickAmount + 1
+      var song = AV.Object.createWithoutData('Song', id)
+      song.set('clickAmount', this.data.song.clickAmount)
+      song.save()
+    },
   }
 
   let controller = {
@@ -88,9 +95,13 @@
       this.view.init()
       this.model = model
       this.getSongId()
-      this.model.getSong(this.model.data.song.id).then(()=>{
-        this.view.render(this.model.data.song)
-      })
+      this.model.getSong(this.model.data.song.id)
+        .then(()=>{
+          this.view.render(this.model.data.song)
+        })
+          .then(()=>{
+            this.model.addClickAmount(this.model.data.song.id)
+          })
       this.bindEvents()
     },
     getSongId(){
