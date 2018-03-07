@@ -4,7 +4,7 @@ header{padding: 3.04vh 3.2vw;display: flex;align-items: center;justify-content: 
 header > .logo{width: 44.375vw;}
 header > a{color: #fff;font-size: 4.6875vw;position: relative;padding: 0.53vh 3.125vw;
   border: 1px solid rgba(255,255,255,.4);border-radius: 37.5%/100%;}
-
+::-webkit-scrollbar{display: none; }
 
 /* nav */
 nav{
@@ -239,4 +239,74 @@ nav > ol > li.active > span::after{
   text-align: center;
   padding: 3.52vh 6.25vw;
   color: rgba(0,0,0,0.4)
+}
+
+/* page-3 */
+.page-3 > form{
+  padding: 2.64vh 3.125vw;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, .1)
+}
+#search{
+  width: 93.75vw;
+  padding: 0 9.375vw;
+  line-height: 5.28vh;
+  border-radius: 10%/100%;
+  outline: none;
+  border: none;
+  background: #ebecec;
+}
+.page-3 > form > svg:nth-child(1){
+  position: absolute;
+  top: 3.87vh;
+  left: 5.625vw;
+}
+.page-3 > form > svg.clear{
+  position: absolute;
+  top: 3.87vh;
+  right: 5vw;
+  display: none;
+}
+.page-3 > form > svg.clear.active{
+  display: block;
+}
+.page-3 > a{
+  display: inline-block;
+  padding: 2vh 3.125vw;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  color: #507daf;
+  overflow: auto;
+  white-space: nowrap;
+}
+.page-3 > ol > li{
+  padding:1.01vh 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  margin-left: 3.125vw;
+}
+.page-3 > ol > li > a{
+  position: relative;
+}
+.page-3 > ol > li > a > h3{
+  font-size: 5vw;
+  max-width: 83.75vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #507daf;
+}
+.page-3 > ol > li > a > p{
+  font-size: 3.75vw;
+  color: #888;
+  max-width: 83.75vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-3 > ol > li > a > svg.icon{
+  position: absolute;
+  width: 8.125vw;
+  height: 4.58vh;
+  right: -94.125vw;
+  top: -5.30vh;
 }

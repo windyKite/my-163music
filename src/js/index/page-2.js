@@ -57,7 +57,6 @@
           `
         }
         $ol = this.$el.find('ol').eq(0)
-        console.log($ol)
         $ol.append(li)
       })
     },
@@ -80,7 +79,6 @@
             singer: song.attributes.singer,
           }
         })
-        console.log(this.data.songs)
       }).catch((error)=>{
         console.log(error)
       })
