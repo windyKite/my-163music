@@ -46,6 +46,11 @@
     removeTagA(){
       $('#searchButton').remove()
     },
+    removeSearchOl(){
+      if(this.$el.find('ol')){
+        this.$el.find('ol').eq(0).remove()
+      }
+    },
     renderSongs(songs){
       let $ol = $('<ol></ol>')
       songs.map((song)=>{
@@ -125,6 +130,7 @@
           this.view.deactiveClear()
           this.model.hasTagA = false
           this.view.removeTagA()
+          this.view.removeSearchOl()
         }else{ // input 不为空，添加或修改a标签，添加X图标
           this.model.inputValue = e.currentTarget.value
           this.view.activeClear()
@@ -135,9 +141,7 @@
       this.view.$el.find('svg.clear').eq(0).on('click',(e)=>{
         this.view.removeAll()
         this.model.hasTagA = false
-        if(this.view.$el.find('ol')){
-          this.view.$el.find('ol').eq(0).remove()
-        }
+        this.view.removeSearchOl()
       })
       this.view.$el.on('click','#searchButton',(e)=>{
         this.model.search(this.model.inputValue).then(()=>{
