@@ -144,7 +144,7 @@ nav > ol > li.active > span::after{
 .page-2 > .hotSong{
   width: 100%;
   height: 21.91vh;
-  background-image:url(../../../images/index/hot-song-background.jpg);
+  background-image:url(http://p4ybacwlp.bkt.clouddn.com/o_1c80j026c13q918ovqms1cg81jsrm.jpg);
   background-size: contain;
   position: relative;
 }
@@ -161,7 +161,7 @@ nav > ol > li.active > span::after{
 .page-2 > .hotSong > .hotSongContent{
   width: 44.375vw;
   height: 11.80vh;
-  background-image: url(../../../images/index/hot-song.png); 
+  background-image: url(http://p4ybacwlp.bkt.clouddn.com/o_1c80j0olbmql4po14t1qptausr.png); 
   background-size: 51.875vw 17.08vh;
   background-position-x: -7.4vw;
   background-position-y: 11.8vh;
