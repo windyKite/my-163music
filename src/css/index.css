@@ -67,7 +67,7 @@ nav > ol > li.active > span::after{
 }
 .recommendedSongList > ul > li > p{
   font-size: 4.0625vw;
-  line-height: 2.82vh;
+  line-height: 2.92vh;
   padding: 1.06vh 0.625vw 0 1.875vw;
   display: -webkit-box;
   -webkit-box-orient: vertical;
